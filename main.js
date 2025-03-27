@@ -1,34 +1,32 @@
 /*
 Skript für die Nueseelandreise
 */
-let lat = -41.270833;
-let lng = 173.284167;
-let zoom = 11;
+
 
 let stop = {
-    nr: "11",
-    titel: "Nelson",
+    nr: 11,
+    title: "Nelson",
     user: "lujehle",
-    lat: lat,
-    lng: lng,
-    zoom: zoom,
+    lat: -41.270833,
+    lng: 173.284167,
+    zoom: 11,
 }
 
 //Karte initialisieren
-let map = L.map('map').setView([lat, lng], zoom);
+let map = L.map('map').setView([stop.lat, stop.lng], stop.zoom);
 //Hintergrundkarte definieren
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 //Marker zeichnen
-let marker = L.marker([lat, lng]).addTo(map);
+let marker = L.marker([stop.lat, stop.lng]).addTo(map);
 //Popup definieren und öffnen
 marker.bindPopup(`
-    <h2>Neslon</h2>
+    <h2>${stop.title}</h2>
     <ul>
-    <li>Geogr. Breite: ${lat.toFixed(5)}°</li>
-    <li>Geogr. Länge:  ${lng.toFixed(5)}°</li>
+    <li>Geogr. Breite: ${stop.lat.toFixed(5)}°</li>
+    <li>Geogr. Länge:  ${stop.lng.toFixed(5)}°</li>
     </ul>
     `).openPopup();
 
