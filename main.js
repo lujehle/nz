@@ -4,6 +4,16 @@ Skript für die Nueseelandreise
 let lat = -41.270833;
 let lng = 173.284167;
 let zoom = 11;
+
+let stop = {
+    nr: "11",
+    titel: "Nelson",
+    user: "lujehle",
+    lat: lat,
+    lng: lng,
+    zoom: zoom,
+}
+
 //Karte initialisieren
 let map = L.map('map').setView([lat, lng], zoom);
 //Hintergrundkarte definieren
@@ -21,3 +31,4 @@ marker.bindPopup(`
     <li>Geogr. Länge:  ${lng.toFixed(5)}°</li>
     </ul>
     `).openPopup();
+
