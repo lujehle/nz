@@ -15,7 +15,9 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 let marker = L.marker([lat, lng]).addTo(map);
 //Popup definieren und öffnen
 marker.bindPopup(`
-    <b>Hello world!</b>
-    <br>
-    I am a popup at ${lat.toFixed(5)} / ${lng.toFixed(5)}.`
-).openPopup();
+    <h2>Neslon</h2>
+    <ul>
+    <li>Geogr. Breite: ${lat.toFixed(5)}°</li>
+    <li>Geogr. Länge:  ${lng.toFixed(5)}°</li>
+    </ul>
+    `).openPopup();
