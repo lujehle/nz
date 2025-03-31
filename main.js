@@ -213,6 +213,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // loop über Etappen
 for (let i = 0; i < STOPS.length; i++) {
+    
     //console.log(STOPS[i], STOPS[i].title);
     //Marker zeichnen
     let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
@@ -232,6 +233,3 @@ for (let i = 0; i < STOPS.length; i++) {
         marker.openPopup();
     }
 }
-
-
-
