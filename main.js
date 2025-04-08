@@ -232,4 +232,29 @@ for (let i = 0; i < STOPS.length; i++) {
         map.setView([STOPS[i].lat, STOPS[i].lng], STOPS[i].zoom);
         marker.openPopup();
     }
+
+
+   //Pulldownmenü befüllen
+   let option = document.createElement("option");
+   option.value = STOPS[i].user;
+   option.text = STOPS[i].title;
+   if (STOPS[i].user == "lujehle") {
+       option.selected = true;
+   }
+   document.querySelector("#pulldown select").appendChild(option);
+   
+
 }
+
+// auf Änderungen beim Pulldown reagieren
+document.querySelector("#pulldown select").onchange = function(evt) {
+   let url = `https://${evt.target.value}.github.io/nz`;
+   //console.log(evt.target.value);
+   //console.log(url);
+   window.location = url;
+}
+
+//Maßstab
+L.control.scale({
+    imperial: false
+}).addTo(map);
