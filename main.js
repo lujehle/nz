@@ -217,11 +217,12 @@ let markerGroup = L.layerGroup();
 // loop über Etappen
 for (let i = 0; i < STOPS.length; i++) {
     
-    //console.log(STOPS[i], STOPS[i].title);
+   
     //Marker zeichnen
-    let marker = L.marker([STOPS[i].lat, STOPS[i].lng]);
+    let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
     marker.addTo(markerGroup);
-        //Popup definieren 
+
+    //Popup definieren 
     marker.bindPopup(`
         <h2>${STOPS[i].title}</h2>
         <ul>
@@ -249,14 +250,11 @@ for (let i = 0; i < STOPS.length; i++) {
    
 
 }
-
 markerGroup.addTo(map);
-
 // auf Änderungen beim Pulldown reagieren
 document.querySelector("#pulldown select").onchange = function(evt) {
-   let url = `https://${evt.target.value}.github.io/nz`;
-   //console.log(evt.target.value);
-   //console.log(url);
+   let url = `https://${evt.target.value}.github.io/top`;
+
    window.location = url;
 }
 
@@ -264,8 +262,6 @@ document.querySelector("#pulldown select").onchange = function(evt) {
 L.control.scale({
     imperial: false
 }).addTo(map);
-
-
 
 //Layercontrol
 L.control.layers({
